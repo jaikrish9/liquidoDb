@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.anair.database</groupId>
+	<artifactId>liquidoDB</artifactId>
+	<version>0.0.1</version>
+
+	<name>liquibase example</name>
+	<description>Database refactoring using liquibase</description>
+
+	<properties>
+		<liquibase.plugin.version>4.0.0</liquibase.plugin.version>
+		<oracle.client.version>12.2.0.1</oracle.client.version>
+	</properties>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>${liquibase.plugin.version}</version>
+				<configuration>
+					<changeLogFile>src/main/resources/changeLog/master-changelog.xml</changeLogFile>
+					
+					<!-- <driver>oracle.jdbc.OracleDriver</driver> -->
+					<driver>${DB_DRIVER}</driver>
+					<url>${DB_URL}</url>
+					<username>${DB_USERNAME}</username>
+					<password>${DB_PASSWORD}</password>
+					<defaultSchemaName>${DB_SCHEMA}</defaultSchemaName>
+					
+					<contexts>${DB_CONTEXT}</contexts>
+					<logLevel>${LOG_LEVEL}</logLevel>
+					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+					
+					<outputChangeLogFile>target/liquibase/ChangeLogFile.oracle.sql</outputChangeLogFile>
+					<migrationSqlOutputFile>target/liquibase/migration.sql</migrationSqlOutputFile>
+					<outputFile>target/liquibase/rollback.sql</outputFile>
+					<outputDirectory>target/liquibase/Docs</outputDirectory>
+					
+					<diffChangeLogFile>target/liquibase/diffChangeLogFile.oracle.sql</diffChangeLogFile>
+					<referenceUrl>${REF_SRC_URL}</referenceUrl>
+					<referenceUsername>${REF_SRC_USERNAME}</referenceUsername>
+					<referencePassword>${REF_SRC_PASSWORD}</referencePassword>
+					
+					
+					<!-- <tag>${project.version}</tag> -->
+					<!-- <rollbackCount>${ROLLBACK_COUNT}</rollbackCount> -->
+					<!-- <rollbackTag>${ROLLBACK_TAG}</rollbackTag> -->
+					
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+
+	<dependencies>
+		<dependency>
+		    <groupId>com.oracle.jdbc</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <version>${oracle.client.version}</version>
+		</dependency>
+	</dependencies>
+</project>

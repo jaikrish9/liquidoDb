@@ -1,0 +1,190 @@
+-- *********************************************************************
+-- Update Database Script
+-- *********************************************************************
+-- Change Log: src/main/resources/changeLog/master-changelog.xml
+-- Ran at: 12/14/20 3:59 PM
+-- Against: SPSOWNER@jdbc:oracle:thin:@//spsmdmwh-f-01.internal.das:1525/spsmdmwhf
+-- Liquibase version: 4.0.0
+-- *********************************************************************
+
+-- Lock Database
+UPDATE SPSOWNER.DATABASECHANGELOGLOCK SET LOCKED = 1, LOCKEDBY = 'L8R3CJR2 (33.31.1.194)', LOCKGRANTED = TO_TIMESTAMP('2020-12-14 15:59:47.489', 'YYYY-MM-DD HH24:MI:SS.FF') WHERE ID = 1 AND LOCKED = 0;
+
+-- DatabaseChangeLog checksums are an incompatible version.  Setting them to null so they will be updated on next database update
+UPDATE SPSOWNER.DATABASECHANGELOG SET MD5SUM = NULL;
+
+-- Changeset src/main/resources/SQL/Base_state.sql::1601035044552-1::AF38889
+CREATE TABLE ADMIN_EMP2 (FILEID NUMBER(*, 0), CHANGE_DT TIMESTAMP(6));
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1601035044552-1', 'AF38889', 'src/main/resources/SQL/Base_state.sql', SYSTIMESTAMP, 2, '8:aa839593f7a2665440583c8ba016eeb2', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Base_state.sql::1601035044552-2::AF38889
+CREATE TABLE TEST1 (ID NUMBER(*, 0) NOT NULL, NAME VARCHAR2(255 BYTE), LOCATION1 VARCHAR2(255 BYTE), LOCATION2 VARCHAR2(255 BYTE), LOCATION3 VARCHAR2(255 BYTE), LOCATION4 VARCHAR2(255 BYTE), LOCATION5 VARCHAR2(255 BYTE));
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1601035044552-2', 'AF38889', 'src/main/resources/SQL/Base_state.sql', SYSTIMESTAMP, 3, '8:e171a455785e790e76b7f1faf5dfa243', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Base_state.sql::1601035044552-3::AF38889
+CREATE TABLE TEST2 (ID NUMBER(*, 0) NOT NULL, NAME VARCHAR2(255 BYTE), LOCATION1 VARCHAR2(255 BYTE), LOCATION2 VARCHAR2(255 BYTE), LOCATION3 VARCHAR2(255 BYTE));
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1601035044552-3', 'AF38889', 'src/main/resources/SQL/Base_state.sql', SYSTIMESTAMP, 4, '8:86946ea056e1cc8cbc6ce7ce0bc18974', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Base_state.sql::1601035044552-4::AF38889
+CREATE TABLE TEST3 (ID NUMBER(*, 0) NOT NULL, NAME VARCHAR2(255 BYTE), LOCATION1 VARCHAR2(255 BYTE), LOCATION2 VARCHAR2(255 BYTE));
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1601035044552-4', 'AF38889', 'src/main/resources/SQL/Base_state.sql', SYSTIMESTAMP, 5, '8:6b47d32b5a7ee424aec70396d5d350b4', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Base_state.sql::1601035044552-5::AF38889
+CREATE TABLE VVTEST_TABLE (FILE_ID NUMBER(*, 0) NOT NULL, CHANGED_DATE TIMESTAMP(9));
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1601035044552-5', 'AF38889', 'src/main/resources/SQL/Base_state.sql', SYSTIMESTAMP, 6, '8:f969ba836ccf5c180caff9b1c525958c', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Base_state.sql::1601035044552-6::AF38889
+CREATE UNIQUE INDEX SYS_C008397 ON TEST1(ID);
+
+ALTER TABLE TEST1 ADD CONSTRAINT SYS_C008397 PRIMARY KEY (ID) USING INDEX SYS_C008397;
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1601035044552-6', 'AF38889', 'src/main/resources/SQL/Base_state.sql', SYSTIMESTAMP, 7, '8:b914bf9249b933227850e987d0e05acd', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Base_state.sql::1601035044552-7::AF38889
+CREATE UNIQUE INDEX SYS_C008398 ON TEST2(ID);
+
+ALTER TABLE TEST2 ADD CONSTRAINT SYS_C008398 PRIMARY KEY (ID) USING INDEX SYS_C008398;
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1601035044552-7', 'AF38889', 'src/main/resources/SQL/Base_state.sql', SYSTIMESTAMP, 8, '8:351e9f5d705d3c7430d71beb634f7db1', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Base_state.sql::1601035044552-8::AF38889
+CREATE UNIQUE INDEX SYS_C008716 ON TEST3(ID);
+
+ALTER TABLE TEST3 ADD CONSTRAINT SYS_C008716 PRIMARY KEY (ID) USING INDEX SYS_C008716;
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1601035044552-8', 'AF38889', 'src/main/resources/SQL/Base_state.sql', SYSTIMESTAMP, 9, '8:77a1be75a8e3c47b1b8f00ce162bbd70', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test1.sql::create_table_test4::JK
+-- testing comments runOnChange:true
+create  table  test4  (  
+id  int  primary  key,  
+name  varchar(255)
+);
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('create_table_test4', 'JK', 'src/main/resources/SQL/Test1.sql', SYSTIMESTAMP, 10, '8:9b3a64cb313ca0c3d448de16062c44a8', 'sql', 'testing comments runOnChange:true', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test10.sql::create_table_test10::JK
+-- testing comments 
+create  table  test10  (  
+id  int  primary  key,  
+name  varchar(255)
+);
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('create_table_test10', 'JK', 'src/main/resources/SQL/Test10.sql', SYSTIMESTAMP, 11, '8:471859bdd9f7d18b70cf98a70895e7b5', 'sql', 'testing comments', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test11.sql::create_table_test11::JK
+-- testing comments 
+create  table  test11 (  
+id  int  primary  key,  
+name  varchar(255)
+);
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('create_table_test11', 'JK', 'src/main/resources/SQL/Test11.sql', SYSTIMESTAMP, 12, '8:50e1a485af7dff6957edd87058a25124', 'sql', 'testing comments', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test11.sql::create_genre_table::anair
+create table genre (
+    id number not null,
+    name varchar(100) not null,
+    CONSTRAINT "genre_pk" PRIMARY KEY (ID)
+)
+TABLESPACE SPSOWNER_TBLSPACE
+LOGGING;
+
+GRANT SELECT,UPDATE,INSERT,DELETE ON genre to SPSOWNER_APP_USER;
+
+GRANT SELECT ON genre to SPSOWNER_RO;
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('create_genre_table', 'anair', 'src/main/resources/SQL/Test11.sql', SYSTIMESTAMP, 13, '8:8c5c1c5dc5dbbf5d34f2bb5716c6a2c9', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test11.sql::genre_uk1::anair
+CREATE UNIQUE INDEX genre_uk1 ON genre (name) 
+TABLESPACE SPSOWNER_TBLSPACE;
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('genre_uk1', 'anair', 'src/main/resources/SQL/Test11.sql', SYSTIMESTAMP, 14, '8:e47e854b178a30904af4fd0959226106', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test11.sql::create_director_table::anair
+create table director (
+    id number not null,
+    name varchar(100) not null,
+    CONSTRAINT "director_pk" PRIMARY KEY (ID)
+)
+TABLESPACE SPSOWNER_TBLSPACE
+LOGGING;
+
+GRANT SELECT,UPDATE,INSERT,DELETE ON director to SPSOWNER_APP_USER;
+
+GRANT SELECT ON director to SPSOWNER_RO;
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('create_director_table', 'anair', 'src/main/resources/SQL/Test11.sql', SYSTIMESTAMP, 15, '8:7d33c40dad201b39db4160975b31f50b', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test2.sql::create_table_test2::JK
+create  table  test2  (  
+id  int  primary  key,  
+name  varchar(255)
+);
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('create_table_test2', 'JK', 'src/main/resources/SQL/Test2.sql', SYSTIMESTAMP, 16, '8:b3c90ea9648a932c36f259eda69032c2', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test2.sql::Alter_table_test2_1::JK
+alter table test2 add location1 varchar(255);
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('Alter_table_test2_1', 'JK', 'src/main/resources/SQL/Test2.sql', SYSTIMESTAMP, 17, '8:07a9016976630eac5498866696a1e7e4', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test2.sql::Alter_table_test2_2::JK
+alter table test2 add location2 varchar(255);
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('Alter_table_test2_2', 'JK', 'src/main/resources/SQL/Test2.sql', SYSTIMESTAMP, 18, '8:1b1bc083b5ba17e5a3c8c36cb85821ea', 'sql', '', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test3.sql::create_table_test5::JK
+-- testing comments runOnChange:true
+create  table  test5  (  
+id  int  primary  key,  
+name  varchar(255)
+);
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('create_table_test5', 'JK', 'src/main/resources/SQL/Test3.sql', SYSTIMESTAMP, 19, '8:44410a838a56807067daae4104531c57', 'sql', 'testing comments runOnChange:true', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test6.sql::create_table_test6::JK
+-- testing comments runOnChange:true
+create  table  test6  (  
+id  int  primary  key,  
+name  varchar(255)
+);
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('create_table_test6', 'JK', 'src/main/resources/SQL/Test6.sql', SYSTIMESTAMP, 20, '8:44a77e84f58e91af73ee4d1f6f048dc2', 'sql', 'testing comments runOnChange:true', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test7.sql::create_table_test7::JK
+-- testing comments runOnChange:true
+create  table  test7  (  
+id  int  primary  key,  
+name  varchar(255)
+);
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('create_table_test7', 'JK', 'src/main/resources/SQL/Test7.sql', SYSTIMESTAMP, 21, '8:dd2ea4002b4d53a410547521361e2a7a', 'sql', 'testing comments runOnChange:true', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test8.sql::create_table_test8::JK
+-- testing comments 
+create  table  test8  (  
+id  int  primary  key,  
+name  varchar(255)
+);
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('create_table_test8', 'JK', 'src/main/resources/SQL/Test8.sql', SYSTIMESTAMP, 22, '8:caa10145146a92d24d88eb9aec828914', 'sql', 'testing comments', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Changeset src/main/resources/SQL/Test9.sql::create_table_test9::JK
+-- testing comments 
+create  table  test9  (  
+id  int  primary  key,  
+name  varchar(255)
+);
+
+INSERT INTO SPSOWNER.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('create_table_test9', 'JK', 'src/main/resources/SQL/Test9.sql', SYSTIMESTAMP, 23, '8:07d10c0304ff36b47d28188f133dd43e', 'sql', 'testing comments', 'EXECUTED', NULL, NULL, '4.0.0', '7941831827');
+
+-- Release Database Lock
+UPDATE SPSOWNER.DATABASECHANGELOGLOCK SET LOCKED = 0, LOCKEDBY = NULL, LOCKGRANTED = NULL WHERE ID = 1;
+
